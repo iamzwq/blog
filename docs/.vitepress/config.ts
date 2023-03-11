@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: "/blog/",
   title: "张文强 - 个人博客",
   description: "个人博客",
   themeConfig: {
