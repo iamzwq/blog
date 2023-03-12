@@ -10,7 +10,7 @@ hero:
   actions:
     - theme: brand
       text: 唱
-      link: /只因你太美
+      link: /zhiyinnitaimei
     # - theme: brand
     #   text: Markdown Examples
     #   link: /markdown-examples
