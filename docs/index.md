@@ -8,7 +8,7 @@ hero:
   # tagline: Like to sing, dance, rap, basketball
   tagline: 我是练习时长两年半的前端练习生zwq，我会复制，粘贴。
   image:
-    src: /images/kunkun.gif
+    src: ./images/kunkun.gif
     alt: kunkun
   actions:
     - theme: brand
@@ -38,4 +38,10 @@ features:
     title: 再往前半步，我就把你杀了
     details: 你应该这么做，我也应该死，曾经有一份真诚的爱情放在我面前，我没有珍惜，等我失去的时候才后悔莫及，人世间最疼苦的事莫过于此。如果上天能够给我一个再来一次的机会，我会对那个女孩说三个字：我爱你。如果非要在这份爱上加一个期限，我希望是……一万年
 ---
+
+<script setup>
+import home from './.vitepress/components/home.vue'
+</script>
+
+<home />
 
