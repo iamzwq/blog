@@ -7,7 +7,7 @@ export default defineConfig({
   description: "再多一眼看一眼就会爆炸 💥",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: './images/ikun01.webp',
+    logo: '../images/ikun01.webp',
     // siteTitle: 'iKun',
     nav: [
       { text: "主页", link: "/" },
