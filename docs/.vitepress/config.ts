@@ -7,7 +7,7 @@ export default defineConfig({
   description: "再多一眼看一眼就会爆炸 💥",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: '../images/ikun01.webp',
+    logo: '/blog/images/ikun01.webp',
     // siteTitle: 'iKun',
     nav: [
       { text: "主页", link: "/" },
@@ -24,9 +24,10 @@ export default defineConfig({
         {
           text: "前端",
           items: [
-            // { text: "前端环境", link: "/frontend/front-end-env" },
             { text: "原型链和继承", link: "/frontend/原型链和继承" },
             { text: "常用工具函数", link: "/frontend/工具函数" },
+            { text: "axios封装", link: "/frontend/axios封装" },
+            { text: "git指令笔记", link: "/frontend/git-command" },
           ],
         },
         {
