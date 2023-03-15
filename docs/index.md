@@ -8,24 +8,21 @@ hero:
   # tagline: Like to sing, dance, rap, basketball
   tagline: 我是练习时长两年半的前端练习生zwq，我会复制，粘贴。
   image:
-    src: ./images/kunkun.gif
+    src: /blog/images/kunkun.gif
     alt: kunkun
   actions:
     - theme: brand
       text: 唱
-      link: /唱
-    # - theme: brand
-    #   text: Markdown Examples
-    #   link: /markdown-examples
+      link: /zhiyinnitaimei
     - theme: alt
       text: 跳
-      link: /dancing
+      link: /frontend/axios封装
     - theme: alt
       text: Rap
-      # link: /frontend/原型链和继承
+      link: /frontend/git-command
     - theme: alt
       text: 🏀
-      link: /dancing
+      link: /windows-apps
 
 features:
   - icon: 🛻

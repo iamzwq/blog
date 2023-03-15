@@ -1,29 +1,36 @@
-# 一些记不住的指令
+# Git 指令笔记
 
-#### git branch 相关指令
+## git branch 相关指令
 
 ```shell
-# 新建本地分支，并和远程分支关联
+# 新建并切换到本地分支，并和远程分支关联
 git checkout -b dev origin/dev
+
 # 本地分支和远程分支关联
 git branch -u origin/dev
 git branch --set-upstream-to origin/dev
 git branch --track dev origin/dev
-# 切换分支
-git checkout dev
+
 # 看本地分支及追踪的分支
 git branch -vv
-# 自动切换到该本地分支，需要手动checkout
-git fetch origin 远程分支名:本地分支名
-# 移除开发完成的功能分支feature/baseinfo
-git branch -d dev
-# 删除远程仓库的功能分支
-git push origin :dev
+
+# 将dev合并到当前分支
+git merge dev
+
+# 将当前分支的base分支变成dev
+git rebase dev
+
+# 删除分支
+# -d => --delete, -D => --delete --force
+git branch (-d | -D) dev
+
+# 重命名分支
+git branch (-m | -M) <oldbranch> <newbranch>
 ```
 
-#### git flow 相关指令
+## git flow 相关指令
 
-[git-flow 备忘清单](http://danielkummer.github.io/git-flow-cheatsheet/index.zh_CN.html)
+git-flow 备忘清单: [http://danielkummer.github.io/git-flow-cheatsheet/index.zh_CN.html](http://danielkummer.github.io/git-flow-cheatsheet/index.zh_CN.html)
 
 ```shell
 # 创建一个git项目，并创建master和develop分支
