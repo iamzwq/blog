@@ -8,12 +8,12 @@ hero:
   # tagline: Like to sing, dance, rap, basketball
   tagline: 我是练习时长两年半的前端练习生zwq，我会复制，粘贴。
   image:
-    src: /images/kunkun.gif
+    src: /kunkun.gif
     alt: kunkun
   actions:
     - theme: brand
       text: 唱
-      link: /zhiyinnitaimei
+      link: /liangnianban
     - theme: alt
       text: 跳
       link: /frontend/axios封装
@@ -22,7 +22,7 @@ hero:
       link: /frontend/git-command
     - theme: alt
       text: 🏀
-      link: /windows-apps
+      link: /电脑软件
 
 features:
   - icon: 🛻
@@ -37,8 +37,7 @@ features:
 ---
 
 <script setup>
-import home from './.vitepress/components/home.vue'
+  import Home from './.vitepress/components/home.vue'
 </script>
 
-<home />
-
+<Home />
