@@ -1,3 +1,3 @@
-![kun](/images/kunkun.png)
-![kun](/images/kunkun.png)
-![kun](/images/kunkun.png)
+![kun](/kunkun.png)
+![kun](/kunkun.png)
+![kun](/kunkun.png)
