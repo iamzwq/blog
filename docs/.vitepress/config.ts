@@ -33,7 +33,7 @@ export default defineConfig({
       {
         text: "前端",
         items: [
-          { text: "前端", link: "/frontend/工具函数" },
+          { text: "前端", link: "/frontend/项目搭建-eslint" },
           { text: "VSCode", link: "/vscode/index" },
         ],
       },
@@ -49,10 +49,12 @@ export default defineConfig({
         {
           text: "前端",
           items: [
-            { text: "原型链和继承", link: "/frontend/原型链和继承" },
-            { text: "常用工具函数", link: "/frontend/工具函数" },
-            { text: "axios封装", link: "/frontend/axios封装" },
+            { text: "项目搭建配置之eslint", link: "/frontend/项目搭建-eslint" },
             { text: "git指令笔记", link: "/frontend/git-command" },
+            { text: "axios封装", link: "/frontend/axios封装" },
+            { text: "原型链和继承", link: "/frontend/原型链和继承" },
+            { text: "tsconfig.json", link: "/frontend/tsconfigjson" },
+            { text: "常用工具函数", link: "/frontend/工具函数" },
           ],
         },
       ],
