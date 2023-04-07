@@ -16,10 +16,10 @@ hero:
       link: /kunkun/liangnianban
     - theme: alt
       text: 跳
-      link: /frontend/项目搭建-eslint
+      link: /frontend/cli-eslint
     - theme: alt
       text: Rap
-      link: /frontend/axios封装
+      link: /frontend/axios-wrapper
     - theme: alt
       text: 🏀
       link: /电脑软件

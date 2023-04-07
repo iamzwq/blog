@@ -1,26 +1,51 @@
 <script setup>
-  const list = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const list = [
+    { text: "React和Vue的对比", link: "/frontend/react-vs-vue" },
+    { text: "项目搭建配置之eslint", link: "/frontend/cli-eslint" },
+    { text: "git常用指令", link: "/frontend/git-command" },
+    { text: "axios封装", link: "/frontend/axios-wrapper" },
+    { text: "原型链和继承", link: "/frontend/prototype-extend" },
+    { text: "tsconfig.json", link: "/frontend/tsconfigjson" },
+    { text: "常用工具函数", link: "/frontend/frontend-utils" },
+    { text: "插件", link: "/vscode/index" },
+    { text: "设置文件", link: "/vscode/settings" },
+    { text: "代码片段", link: "/vscode/snippets" },
+    {
+      text: "前端仔电脑要装的",
+      link: "/other/前端仔电脑要装的",
+    },
+    {
+      text: "好用的电脑软件",
+      link: "/other/好用的电脑软件",
+    },
+    {
+      text: "浏览器插件",
+      link: "/other/browser-plugins",
+    },
+    {
+      text: "cus",
+      link: "/other/cus",
+    },
+  ]
 </script>
 <template>
-  <div class="home-wrapper">
-    <div v-for="item in list" :key="item" class="home-item">{{ item }}</div>
-  </div>
+  <ul class="wrapper">
+    <li v-for="item in list" :key="item" class="item">
+      <a :href="item.link">{{ item.text }}</a>
+    </li>
+  </ul>
 </template>
 <style>
-  .home-wrapper {
-    text-align: center;
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
   }
-  .home-item {
-    vertical-align: middle;
-    margin: 4px 4px 10px;
-    padding: 4px 8px;
+  .item {
+    display: block;
     font-weight: bolder;
-    display: inline-block;
-    cursor: pointer;
     border-radius: 2px;
-    line-height: 13px;
-    font-size: 13px;
-    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1);
     transition: all 0.5s;
   }
 </style>

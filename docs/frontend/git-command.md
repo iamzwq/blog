@@ -40,11 +40,15 @@ git branch -vv
 git branch -u origin/dev
 git branch --set-upstream-to origin/dev
 git branch --track dev origin/dev
+
+# 重命名分支
+git branch (-m | -M) <oldbranch> <newbranch>
+# 删除远程分支
+git push --delete origin <branchName>
+git push origin <newBranchName>
 # 删除分支
 # -d => --delete, -D => --delete --force
 git branch (-d | -D) dev
-# 重命名分支
-git branch (-m | -M) <oldbranch> <newbranch>
 
 # 将dev合并到当前分支
 git merge dev
@@ -187,23 +191,36 @@ git  log  --grep
 
 ## git修改commit信息
 
-1.  刚刚commit，还没有push，使用git commit --amend;
-1.  修改历史push的commit信息
+1. 刚刚commit，还没有push，使用git commit --amend;
 
-```bash
-git rebase -i commitId, commitId待修改的前一个
-# 键入 i 进入输入模式
-# 可用键盘上下键转到描述所在的那一行，然后进行修改
-# 将要修改的那一条commit的 pick 改为 edit
-# 修改完成后，按下 Esc键退出编辑模式
-# 再键入 :wq 回车退出并保存修改，完成提交。
-git commit --amend
-git rebase --continue
-git push -f
-```
 
 ## git flow
 
 <https://juejin.cn/post/6982166300806086692#heading-18>
 
-######
+```bash
+git flow init
+
+# Branch name for production releases: [master]
+# Branch name for "next release" development: [develop]
+# How to name your supporting branch prefixes?
+# Feature branches? [feature/] 
+# Bugfix branches? [bugfix/] 
+# Release branches? [release/] 
+# Hotfix branches? [hotfix/] 
+# Support branches? [support/] 
+# Version tag prefix? []
+
+# 基于你本地的develop分支创建功能分支feature/baseinfo并切换过去
+git flow feature start baseinfo
+# =========上面指令等价于===========
+# git checkout -b feature/baseinfo develop
+# ==================================
+
+# 若需要将feature分支发送到远程仓库，可以使用如下指令
+git flow feature publish baseinfo
+# =========上面指令等价于===========
+# git checkout feature/baseinfo
+# git push origin feature/baseinfo
+# ==================================
+```
