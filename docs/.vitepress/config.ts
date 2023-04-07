@@ -22,7 +22,7 @@ const otherItems = [
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   base: "/blog/",
-  title: "相当哇塞",
+  title: "相当哇塞塞",
   description: "再多一眼看一眼就会爆炸 💥",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -33,7 +33,7 @@ export default defineConfig({
       {
         text: "前端",
         items: [
-          { text: "前端", link: "/frontend/项目搭建-eslint" },
+          { text: "前端", link: "/frontend/react-vs-vue" },
           { text: "VSCode", link: "/vscode/index" },
         ],
       },
@@ -49,12 +49,13 @@ export default defineConfig({
         {
           text: "前端",
           items: [
-            { text: "项目搭建配置之eslint", link: "/frontend/项目搭建-eslint" },
+            { text: "React和Vue的对比", link: "/frontend/react-vs-vue" },
+            { text: "项目搭建配置之eslint", link: "/frontend/cli-eslint" },
             { text: "git常用指令", link: "/frontend/git-command" },
-            { text: "axios封装", link: "/frontend/axios封装" },
-            { text: "原型链和继承", link: "/frontend/原型链和继承" },
+            { text: "axios封装", link: "/frontend/axios-wrapper" },
+            { text: "原型链和继承", link: "/frontend/prototype-extend" },
             { text: "tsconfig.json", link: "/frontend/tsconfigjson" },
-            { text: "常用工具函数", link: "/frontend/工具函数" },
+            { text: "常用工具函数", link: "/frontend/frontend-utils" },
           ],
         },
       ],
