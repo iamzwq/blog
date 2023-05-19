@@ -1,13 +1,57 @@
-# Git 常用指令
+# git 常见问题
 
-## git init
+### 1. 撤回 commit
+
+撤回 commit 使用到 git reset 指令
+
+一般我们在使用 reset 命令时，git reset --hard 会被提及的比较多，它能让 commit 记录强制回溯到某一个节点。而 git reset --soft 的作用正如其名，--soft (柔软的) 除了回溯节点外，还会保留节点的修改内容。
 
 ```bash
-# 创建新的 Git 仓库，在当前路径下生成 .git 目录
-git init
+# 恢复最近一次 commit
+git reset --soft HEAD^
+
+git reset --soft <commitId>
 ```
 
-## git remote
+以上说的是还未 push 的commit。对于已经 push 的 commit，也可以使用该命令，不过再次 push 时，由于远程分支和本地分支有差异，需要强制推送 git push -f 来覆盖被 reset 的 commit。
+
+### 2. 修改 commit
+
+- 刚刚commit，还没有push，使用`git commit --amend`，这个命令会**合并提交到上一次的commit里** <https://zhuanlan.zhihu.com/p/100243017>
+- 对于已经 push 到远程仓库的，需要使用 git rebase -i 交互式变基
+
+```bash
+# 基于 commitId 进行 rebase
+git rebase -i <commitId>
+
+# 如果要修改第一次commit信息，则执行
+git rebase -i --root
+```
+
+具体步骤如下:
+
+1.  git rebase -i [<commitId> | --root]
+2.  键入 i 进入输入模式
+3.  可用键盘上下键转到描述所在的那一行
+4.  将要修改的那一条commit的 pick 改为 edit
+5.  按下 Esc键退出编辑模式
+6.  再键入 :wq 回车退出
+7.  执行git commit --amend，修改commit信息
+8.  执行git rebase --continue 结束rebase
+9.  git push -f，强制push上去
+
+### 3. 本地分支和远程分支关联
+
+首先可以通过 `git branch -vv`  查看本地分支及追踪的分支
+
+-   在创建本地分支的时候就关联远程分支：`git checkout -b dev origin/dev`
+-   `git branch (--set-upstream-to=<upstream> | -u <upstream>) [<branchname>]`
+-   `git branch [--set-upstream | --track | --no-track] <branchname>`
+-   如果分支只有本地有，远程仓库没有，可以使用这个：`git push [-u | --set-upstream] <remoteName> <branchName>`，会在远程仓库新建一个分支并和本地分支关联
+
+## git 常用指令
+
+### git remote
 
 ```bash
 # 查看连接的远程仓库地址
@@ -24,7 +68,9 @@ git remote show origin
 git remote prune origin
 ```
 
-## git branch
+### git branch
+
+<https://www.yiibai.com/git/git_branch.html>
 
 ```bash
 # 切换分支
@@ -37,18 +83,12 @@ git checkout -b dev origin/dev
 # 查看本地分支及追踪的分支
 git branch -vv
 # 关联远程分支
-git branch -u origin/dev
-git branch --set-upstream-to origin/dev
-git branch --track dev origin/dev
-
+git branch (--set-upstream-to=<upstream> | -u <upstream>) [<branchname>]
+git branch [--set-upstream | --track | --no-track] <branchname>
 # 重命名分支
 git branch (-m | -M) <oldbranch> <newbranch>
-# 删除远程分支
-git push --delete origin <branchName>
-git push origin <newBranchName>
-# 删除分支
-# -d => --delete, -D => --delete --force
-git branch (-d | -D) dev
+# 删除分支 -d => --delete, -D => --delete --force
+git branch (-d | -D) <branchName>
 
 # 将dev合并到当前分支
 git merge dev
@@ -57,7 +97,7 @@ git merge dev
 git rebase dev
 ```
 
-## git tag
+### git tag
 
 ```bash
 # 新建标签
@@ -70,7 +110,7 @@ git tag -d [tagName]
 git push origin [tagName]
 ```
 
-## git commit
+### git commit
 
 ```bash
 # 将暂存区文件添加到本地仓库，并记录下备注
@@ -80,23 +120,30 @@ git commit -m 'xxx' -n
 # 将文件添加到暂存区，再添加到本地仓库，并记录下备注 = git add + git commit
 git commit -am 'xxx'
 
-
 # 修改commit信息
 git commit --amend
 ```
 
 <https://zhuanlan.zhihu.com/p/100243017>
 
-## git push
+### git push
 
 ```bash
+# git push [--all | --mirror | --tags] [--follow-tags] [--atomic] [-n | --dry-run]
+#          [--receive-pack=<git-receive-pack>] [--repo=<repository>] [-f | --force]
+#          [-d | --delete] [--prune] [-v | --verbose] [-u | --set-upstream]
+#          [--push-option=<string>] [--[no-]signed|--sign=(true|false|if-asked)] 
+#          [--force-with-lease[=<refname>[:<expect>]]] 
+#          [--no-verify] [<repository> [<refspec>…]] 
 # 推送分支
 git push <remoteName> <branchName>
 # 推送分支并建立关联关系
-git push --set-upstream <remoteName> <branchName> 
+git push [-u | --set-upstream] <remoteName> <branchName>
+# 删除远程分支
+git push [-d | --delete] <remoteName> <branchName>
 ```
 
-## git pull
+### git pull
 
 ```bash
 # 从远程仓库拉取代码合并到本地，等同于 git fetch && git merge
@@ -105,48 +152,21 @@ git pull
 git pull --rebase
 ```
 
-## git fetch
-
-```bash
-# 从指定远程仓库拉取当前分支代码
-git fetch <remoteName>
-# 获取所有远程仓库所有分支的更新
-git fetch --all
-```
-
-## git merge
+### git merge
 
 ```bash
 # 将其他分支的内容合并到当前分支中
 git merge <branchName>
 ```
 
-## git rebase
+### git rebase
 
 ```bash
 # 将当前分支变基到 master 分支上
 git rebase master
-
-
-# 交互式变基
-# 基于 commitId 进行 rebase
-git rebase -i <commitId>
-
-
-
-# 修改历史push的commit信息
-git rebase -i commitId, commitId待修改的前一个
-# 键入 i 进入输入模式
-# 可用键盘上下键转到描述所在的那一行，然后进行修改
-# 将要修改的那一条commit的 pick 改为 edit
-# 修改完成后，按下 Esc键退出编辑模式
-# 再键入 :wq 回车退出并保存修改，完成提交。
-git commit --amend
-git rebase --continue
-git push -f
 ```
 
-## git reset
+### git reset
 
 ```bash
 # 回退所有内容到上一个版本
@@ -161,7 +181,7 @@ git reset --soft HEAD~1
 git reset --hard HEAD~1
 ```
 
-## git stash
+### git stash
 
 ```bash
 # 暂存文件
@@ -180,27 +200,13 @@ git stash list
 git stash clear
 ```
 
-## git log
-
-```bash
-# 查看所有 commit 记录
-git log
-# 搜索 commit msg 有瀑布流关键字的 记录
-git  log  --grep
-```
-
-## git修改commit信息
-
-1. 刚刚commit，还没有push，使用git commit --amend;
-
-
-## git flow
+### git flow
 
 <https://juejin.cn/post/6982166300806086692#heading-18>
 
 ```bash
 git flow init
-
+     
 # Branch name for production releases: [master]
 # Branch name for "next release" development: [develop]
 # How to name your supporting branch prefixes?
@@ -224,3 +230,5 @@ git flow feature publish baseinfo
 # git push origin feature/baseinfo
 # ==================================
 ```
+
+######
