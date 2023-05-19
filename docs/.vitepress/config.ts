@@ -1,47 +1,27 @@
-import { defineConfig } from "vitepress";
+import { defineConfig } from "vitepress"
 
 const otherItems = [
-  {
-    text: "前端仔电脑要装的",
-    link: "/other/前端仔电脑要装的",
-  },
-  {
-    text: "好用的电脑软件",
-    link: "/other/好用的电脑软件",
-  },
-  {
-    text: "浏览器插件",
-    link: "/other/browser-plugins",
-  },
-  {
-    text: "cus",
-    link: "/other/cus",
-  },
-];
+  { text: "前端仔电脑要装的", link: "/other/frontend-app" },
+  { text: "好用的电脑软件", link: "/other/computer-app" },
+  { text: "浏览器插件", link: "/other/browser-plugins" },
+  { text: "uuuuuuuuuuuuo", link: "/other/cus" },
+]
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   base: "/blog/",
-  title: "相当哇塞塞",
+  title: "npmrundev",
   description: "再多一眼看一眼就会爆炸 💥",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: "/ikun01.webp",
+    logo: "/avatar.gif",
     // siteTitle: 'iKun',
     nav: [
       { text: "主页", link: "/" },
-      {
-        text: "前端",
-        items: [
-          { text: "前端", link: "/frontend/react-vs-vue" },
-          { text: "VSCode", link: "/vscode/index" },
-        ],
-      },
+      { text: "前端", link: "/frontend/react-vs-vue" },
+      { text: "VSCode", link: "/vscode/index" },
       { text: "Other", items: otherItems },
-      {
-        text: "我的掘金",
-        link: "https://juejin.cn/user/3087084382068286/posts",
-      },
+      { text: "我的掘金", link: "https://juejin.cn/user/3087084382068286/posts" },
     ],
 
     sidebar: {
@@ -74,4 +54,4 @@ export default defineConfig({
 
     socialLinks: [{ icon: "github", link: "https://github.com/iamzwq" }],
   },
-});
+})
