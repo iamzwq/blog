@@ -14,19 +14,23 @@
 - Error Lens
 - DotENV
 - Import Cost
-- ES7+ React/Redux/React-Native snippets
 - Volar
 - GitLens
 - Live Server
-- Monakai Pro
 - Polacode-2022
+- ES7+ React/Redux/React-Native snippets
 
 ## 主题
 
+- Shades of Purple
 - Monokai Pro
 - Dark Molakai Theme
 - Pink-Cat-Boo Theme
 - Panda Theme
+
+## icon 主题
+- VSCode Great Icons
+- Material Icon Theme
 
 ## 字体
 
