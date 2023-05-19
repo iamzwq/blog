@@ -13,11 +13,11 @@ git reset --soft HEAD^
 git reset --soft <commitId>
 ```
 
-以上说的是还未 push 的commit。对于已经 push 的 commit，也可以使用该命令，不过再次 push 时，由于远程分支和本地分支有差异，需要强制推送 git push -f 来覆盖被 reset 的 commit。
+以上说的是还未 push 的 commit。对于已经 push 的 commit，也可以使用该命令，不过再次 push 时，由于远程分支和本地分支有差异，需要强制推送 git push -f 来覆盖被 reset 的 commit。
 
 ### 2. 修改 commit
 
-- 刚刚commit，还没有push，使用`git commit --amend`，这个命令会**合并提交到上一次的commit里** <https://zhuanlan.zhihu.com/p/100243017>
+- 刚刚 commit，还没有 push，使用`git commit --amend`，这个命令会**合并提交到上一次的 commit 里** <https://zhuanlan.zhihu.com/p/100243017>
 - 对于已经 push 到远程仓库的，需要使用 git rebase -i 交互式变基
 
 ```bash
@@ -30,24 +30,24 @@ git rebase -i --root
 
 具体步骤如下:
 
-1.  git rebase -i [<commitId> | --root]
-2.  键入 i 进入输入模式
-3.  可用键盘上下键转到描述所在的那一行
-4.  将要修改的那一条commit的 pick 改为 edit
-5.  按下 Esc键退出编辑模式
-6.  再键入 :wq 回车退出
-7.  执行git commit --amend，修改commit信息
-8.  执行git rebase --continue 结束rebase
-9.  git push -f，强制push上去
+1. `git rebase -i [<commitId> | --root]`
+2. 键入 i 进入输入模式
+3. 可用键盘上下键转到描述所在的那一行
+4. 将要修改的那一条 commit 的 pick 改为 edit
+5. 按下 Esc 键退出编辑模式
+6. 再键入 :wq 回车退出
+7. 执行 git commit --amend，修改 commit 信息
+8. 执行 git rebase --continue 结束 rebase
+9. git push -f，强制 push 上去
 
 ### 3. 本地分支和远程分支关联
 
-首先可以通过 `git branch -vv`  查看本地分支及追踪的分支
+首先可以通过 `git branch -vv` 查看本地分支及追踪的分支
 
--   在创建本地分支的时候就关联远程分支：`git checkout -b dev origin/dev`
--   `git branch (--set-upstream-to=<upstream> | -u <upstream>) [<branchname>]`
--   `git branch [--set-upstream | --track | --no-track] <branchname>`
--   如果分支只有本地有，远程仓库没有，可以使用这个：`git push [-u | --set-upstream] <remoteName> <branchName>`，会在远程仓库新建一个分支并和本地分支关联
+- 在创建本地分支的时候就关联远程分支：`git checkout -b dev origin/dev`
+- `git branch (--set-upstream-to=<upstream> | -u <upstream>) [<branchname>]`
+- `git branch [--set-upstream | --track | --no-track] <branchname>`
+- 如果分支只有本地有，远程仓库没有，可以使用这个：`git push [-u | --set-upstream] <remoteName> <branchName>`，会在远程仓库新建一个分支并和本地分支关联
 
 ## git 常用指令
 
@@ -132,9 +132,9 @@ git commit --amend
 # git push [--all | --mirror | --tags] [--follow-tags] [--atomic] [-n | --dry-run]
 #          [--receive-pack=<git-receive-pack>] [--repo=<repository>] [-f | --force]
 #          [-d | --delete] [--prune] [-v | --verbose] [-u | --set-upstream]
-#          [--push-option=<string>] [--[no-]signed|--sign=(true|false|if-asked)] 
-#          [--force-with-lease[=<refname>[:<expect>]]] 
-#          [--no-verify] [<repository> [<refspec>…]] 
+#          [--push-option=<string>] [--[no-]signed|--sign=(true|false|if-asked)]
+#          [--force-with-lease[=<refname>[:<expect>]]]
+#          [--no-verify] [<repository> [<refspec>…]]
 # 推送分支
 git push <remoteName> <branchName>
 # 推送分支并建立关联关系
@@ -170,7 +170,7 @@ git rebase master
 
 ```bash
 # 回退所有内容到上一个版本
-git reset HEAD^ 
+git reset HEAD^
 # 回退某文件到上一个版本
 git reset HEAD^ [filename]
 # 回退所有内容到指定版本
@@ -206,15 +206,15 @@ git stash clear
 
 ```bash
 git flow init
-     
+
 # Branch name for production releases: [master]
 # Branch name for "next release" development: [develop]
 # How to name your supporting branch prefixes?
-# Feature branches? [feature/] 
-# Bugfix branches? [bugfix/] 
-# Release branches? [release/] 
-# Hotfix branches? [hotfix/] 
-# Support branches? [support/] 
+# Feature branches? [feature/]
+# Bugfix branches? [bugfix/]
+# Release branches? [release/]
+# Hotfix branches? [hotfix/]
+# Support branches? [support/]
 # Version tag prefix? []
 
 # 基于你本地的develop分支创建功能分支feature/baseinfo并切换过去
@@ -230,5 +230,3 @@ git flow feature publish baseinfo
 # git push origin feature/baseinfo
 # ==================================
 ```
-
-######

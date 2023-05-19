@@ -30,7 +30,7 @@
   "forloop": {
     "prefix": "forloop",
     "body": [
-      "for (const i = 0; i < ${1:arr}.length; i ++) {",
+      "for (let i = 0; i < ${1:arr}.length; i++) {",
       "  $2",
       "}"
     ],
