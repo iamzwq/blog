@@ -1,10 +1,8 @@
 import { defineConfig } from "vitepress"
 
 const otherItems = [
-  { text: "前端仔电脑要装的", link: "/other/frontend-app" },
-  { text: "好用的电脑软件", link: "/other/computer-app" },
+  { text: "资源网站", link: "/other/favotite-website.md" },
   { text: "浏览器插件", link: "/other/browser-plugins" },
-  { text: "uuuuuuuuuuuuo", link: "/other/cus" },
 ]
 
 // https://vitepress.dev/reference/site-config

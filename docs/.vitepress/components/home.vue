@@ -10,7 +10,6 @@
     { text: "插件", link: "/vscode/index" },
     { text: "设置文件", link: "/vscode/settings" },
     { text: "代码片段", link: "/vscode/snippets" },
-    { text: "前端仔电脑要装的", link: "/other/frontend-app" },
     { text: "好用的电脑软件", link: "/other/computer-app" },
     { text: "浏览器插件", link: "/other/browser-plugins" },
     { text: "cus", link: "/other/cus" },
