@@ -1,7 +1,7 @@
 import { defineConfig } from "vitepress"
 
 const otherItems = [
-  { text: "资源网站", link: "/other/favotite-website.md" },
+  { text: "资源网站", link: "/other/favotite-website" },
   { text: "浏览器插件", link: "/other/browser-plugins" },
 ]
 
@@ -9,6 +9,7 @@ const otherItems = [
 export default defineConfig({
   base: "/blog/",
   title: "npmrundev",
+  titleTemplate: "😊",
   description: "再多一眼看一眼就会爆炸 💥",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
