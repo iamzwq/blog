@@ -22,7 +22,7 @@ hero:
       link: /frontend/axios-wrapper
     - theme: alt
       text: 🏀
-      link: /电脑软件
+      link: /favorite-website
 
 features:
   - icon: 🚀
