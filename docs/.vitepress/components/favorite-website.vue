@@ -69,10 +69,10 @@
       title: "工具网站",
       children: [
         {
-          text: "docsmall",
-          link: "https://docsmall.com/",
-          icon: "https://docsmall.com/favicon.png",
-          intro: "免费在线图片压缩、GIF压缩工具、PDF压缩工具、PDF合并工具、PDF分割工具",
+          text: "SourceForge",
+          link: "https://sourceforge.net/",
+          icon: "https://a.fsdn.com/con/img/sandiego/logo-180x180.png",
+          intro: "全球最大的开源软件库",
         },
         {
           text: "PDF24 Tools",
@@ -114,7 +114,7 @@
           text: "File Converter",
           link: "https://file-converter.org/",
           icon: "https://file-converter.org/favicon.ico",
-          intro: "Convert & compress everything in 2 clicks!",
+          intro: "文件转换",
         },
         {
           text: "AI工具集",
@@ -127,6 +127,18 @@
           link: "https://axutongxue.com/",
           icon: "https://axutongxue.com/favicon.ico",
           intro: "阿虚同学的储物间",
+        },
+        {
+          text: "切九图",
+          link: "https://v.magiconch.com/sns-image",
+          icon: "https://v.magiconch.com/favicon.ico",
+          intro: "在线切九宫格、四宫格",
+        },
+        {
+          text: "favicon在线制作",
+          link: "https://tool.lu/favicon/",
+          icon: "https://oss.tool.lu/cache/202305/23/10433518c2twazw811vwaa.jpg.icon.ico",
+          intro: "favicon在线制作",
         },
       ],
     },
@@ -149,6 +161,12 @@
           text: "下载吧音乐下载",
           link: "https://music.y444.cn/#/",
           icon: "https://static.music.y444.cn/static/img/logo.397ed8f7.png",
+          intro: "音乐免费下载",
+        },
+        {
+          text: "MP3 malina",
+          link: "https://mp3-banana.pro/",
+          icon: "https://favicon.rss.ink/v1/aHR0cHM6Ly9tcDMtYmFuYW5hLnBybw==",
           intro: "音乐免费下载",
         },
       ],
@@ -237,7 +255,7 @@
           text: "Geek Uninstall",
           link: "https://geekuninstaller.com/",
           icon: "https://geekuninstaller.com/favicon.ico",
-          intro: "The best FREE uninstaller",
+          intro: "免费软件彻底卸载工具",
         },
         {
           text: "Snipaste",
@@ -248,37 +266,37 @@
         {
           text: "7-Zip",
           link: "https://www.7-zip.org/",
-          icon: "https://www.7-zip.org/7ziplogo.png",
+          icon: "https://www.7-zip.org/favicon.ico",
           intro: "7-Zip",
         },
         {
           text: "IDM",
           link: "https://www.internetdownloadmanager.com/",
-          icon: "https://www.internetdownloadmanager.com/register/IDMlib/images/idman_logos.png",
-          intro: "Internet Download Manager",
+          icon: "https://www.internetdownloadmanager.com/favicon.ico",
+          intro: "网络多线程下载神器",
         },
         {
           text: "NDM",
           link: "http://www.neatdownloadmanager.com/index.php/en/",
           icon: "http://www.neatdownloadmanager.com/templates/neat/favicon.ico",
-          intro: "Free Internet Download Manager Mac & Windows",
+          intro: "网络多线程下载神器",
         },
         {
           text: "Notepads",
           link: "https://www.notepadsapp.com/",
           icon: "https://static.wixstatic.com/media/0fcd80_4839a0a2330145269bb4fc405a43c670%7Emv2.png/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/0fcd80_4839a0a2330145269bb4fc405a43c670%7Emv2.png",
-          intro: "A modern, lightweight text editor with minimum design.",
+          intro: "好用的记事本替代软件",
         },
         {
           text: "uTools",
           link: "https://u.tools/",
-          icon: "https://res.u-tools.cn/website/logo.png",
+          icon: "https://u.tools/favicon.ico",
           intro: "新一代效率工具平台",
         },
         {
           text: "OBS",
           link: "https://obsproject.com/zh-cn",
-          icon: "https://obsproject.com/favicon-16x16.png",
+          icon: "https://obsproject.com/favicon-32x32.png",
           intro: "Open Broadcaster Software",
         },
         {
@@ -286,6 +304,41 @@
           link: "http://www.potplayercn.com/",
           icon: "http://www.potplayercn.com/wp-content/themes/pot/images/favicon.ico",
           intro: "万能格式影音视频播放器",
+        },
+        {
+          text: "Ditto",
+          link: "https://ditto-cp.sourceforge.io/",
+          icon: "https://ditto-cp.sourceforge.io/Ditto2.png",
+          intro: "历史剪贴板",
+        },
+      ],
+    },
+    {
+      title: "插件安装",
+      children: [
+        {
+          text: "Edge扩展商店",
+          link: "https://microsoftedge.microsoft.com/addons/Microsoft-Edge-Extensions-Home",
+          icon: "https://microsoftedge.microsoft.com/favicon.ico",
+          intro: "Edge扩展商店",
+        },
+        {
+          text: "扩展迷",
+          link: "https://www.extfans.com/",
+          icon: "https://static.extfans.com/sites-resource/extfans/61ea85a31aec3f3365dbe165/icon_1642759665914.jpg",
+          intro: "扩展插件商店",
+        },
+        {
+          text: "极简插件",
+          link: "https://chrome.zzzmh.cn/#/index",
+          icon: "https://chrome.zzzmh.cn/favicon.ico",
+          intro: "扩展插件商店",
+        },
+        {
+          text: "Greasy Fork",
+          link: "https://greasyfork.org/zh-CN",
+          icon: "https://greasyfork.org/vite/assets/blacklogo16-bc64b9f7.png",
+          intro: "最佳油猴脚本搜索网站",
         },
       ],
     },
@@ -328,6 +381,12 @@
           icon: "https://icones.js.org/favicon.svg",
           intro: "Icônes",
         },
+        {
+          text: "Haikei",
+          link: "https://icones.js.org/",
+          icon: "",
+          intro: "配图背景生成器",
+        },
       ],
     },
   ]
@@ -348,7 +407,7 @@
         >
           <div class="site-title">
             <img
-              :src="site.icon || 'https://api.iconify.design/twemoji:brown-circle.svg'"
+              :src="site.icon || 'https://favicon.rss.ink/v1/aHR0cHM6Ly9hcHAuaGFpa2VpLmFwcA=='"
               :alt="site.text"
               class="site-icon"
             />
@@ -383,7 +442,7 @@
         .site-item {
           display: flex;
           flex-direction: column;
-          padding: 8px 12px;
+          padding: 6px 8px;
           width: 154px;
           gap: 8px;
           overflow: hidden;
