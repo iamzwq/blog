@@ -401,8 +401,8 @@
         },
         {
           text: "Haikei",
-          link: "https://icones.js.org/",
-          icon: "",
+          link: "https://haikei.app/",
+          icon: "https://haikei.app/favicon.ico",
           intro: "配图背景生成器",
         },
       ],
