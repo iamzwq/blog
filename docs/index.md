@@ -2,31 +2,33 @@
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
+title: Home
+titleTemplate: iamzwq blog
+
 hero:
   name: "全民制作人们大家好！"
-  text: ""
-  # tagline: Like to sing, dance, rap, basketball
-  tagline: 我是练习时长两年半的前端练习生npmrundev，我会复制，粘贴。
+  text: "我是练习时长两年半的前端练习生"
+  tagline: 我会复制，粘贴。
   image:
-    src: /avatar.gif
+    src: /vite-logo.png
     alt: kunkun
   actions:
     - theme: brand
       text: 唱
-      link: /kunkun/liangnianban
+      # link: 
     - theme: alt
       text: 跳
-      link: /frontend/cli-eslint
+      # link: 
     - theme: alt
       text: Rap
-      link: /frontend/axios-wrapper
+      # link: 
     - theme: alt
       text: 🏀
-      link: /favorite-website
+      link: /others/favorite-website
 
 features:
   - icon: 🚀
-    title: npmrundev
+    title: iamzwq
     details: 我这么年轻就已经达到人生最高的境界，接着下来，除了结束自己的生命之外，我是无路可走了!
   - icon: 🚗
     title: 大话西游
@@ -41,3 +43,8 @@ features:
 </script>
 
 <Home /> -->
+
+<script setup></script>
+<template>
+  <div style="height: 12px">div</div>
+</template>
