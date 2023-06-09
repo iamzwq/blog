@@ -7,30 +7,36 @@
           text: "电影狗",
           link: "https://www.dianyinggou.com/",
           icon: "https://www.dianyinggou.com/favicon.ico",
-          intro: "专业的电影搜索引擎",
+          intro: "影视在线聚合搜索",
+        },
+        {
+          text: "7080影视搜",
+          link: "https://7080.wang/",
+          icon: "https://7080.wang/img/favicon.png",
+          intro: "影视在线聚合搜索",
         },
         {
           text: "搜片",
           link: "https://soupian.xyz/",
           icon: "https://soupian.xyz/images/icon.png",
-          intro: "搜你想看的影片",
+          intro: "影视在线聚合搜索",
         },
         {
           text: "茶杯狐",
           link: "https://cupfox.app/",
           icon: "https://picx.zhimg.com/80/v2-de36e385e59fcca2df694b76f108431a.png",
-          intro: "👍影视在线聚合搜索",
+          intro: "影视在线聚合搜索",
+        },
+        {
+          text: "悟空视频",
+          link: "https://wukongshipin.com/",
+          icon: "https://wukongshipin.com/favicon.ico",
+          intro: "影视在线聚合搜索",
         },
         {
           text: "全影网",
           link: "https://quanying.cc/",
           icon: "https://quanying.cc/mxtheme/images/favicon.png",
-          intro: "在线观看",
-        },
-        {
-          text: "在线之家",
-          link: "https://www.zxzjhd.com/",
-          icon: "https://www.zxzjhd.com/statics/img/favicon.ico",
           intro: "在线观看",
         },
         {
@@ -217,10 +223,10 @@
           intro: "HD/4K/5K Resolution Wallpapers/Backgrounds ▪ Wallroom.io",
         },
         {
-          text: "wallpaperup",
-          link: "https://www.wallpaperup.com/",
-          icon: "https://www.wallpaperup.com/favicon-16x16.png?v=3.5.1",
-          intro: "Popular wallpapers",
+          text: "Gratisography",
+          link: "https://gratisography.com/",
+          icon: "https://gratisography.com/wp-content/themes/gratis-v3/favicon.png",
+          intro: "脑洞设计师独立网站",
         },
         {
           text: "Alpha Coders",
@@ -421,7 +427,7 @@
           target="_blank"
           :href="site.link"
           :key="site.link"
-          :title="site.link"
+          :title="site.intro"
         >
           <div class="site-title">
             <img
@@ -437,6 +443,7 @@
     </li>
   </ul>
 </template>
+
 <style lang="scss">
   li {
     list-style: none;
