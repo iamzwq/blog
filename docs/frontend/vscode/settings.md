@@ -2,12 +2,10 @@
 
 ```json
 {
-  "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
-  "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
-  "editor.lineHeight": 1.2,
-  "editor.fontSize": 14,
+  "editor.lineHeight": 1.6,
+  "editor.fontSize": 18,
   "editor.tabSize": 2,
-  "editor.fontWeight": "700",
+  "editor.fontWeight": "600",
   "editor.linkedEditing": true,
   "editor.tabCompletion": "on",
   "editor.bracketPairColorization.enabled": true,
@@ -19,14 +17,25 @@
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.suggest.snippetsPreventQuickSuggestions": false,
   "terminal.integrated.fontFamily": "JetBrains Mono",
-  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontSize": 16,
   "terminal.integrated.fontWeight": "400",
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "explorer.compactFolders": false,
+  "git.ignoreWindowsGit27Warning": true,
+  "git.enableSmartCommit": true,
   "volar.autoCompleteRefs": true,
   "volar.inlayHints.eventArgumentInInlineHandlers": false,
   "prettier.vueIndentScriptAndStyle": true,
-  "git.ignoreWindowsGit27Warning": true,
-  "git.enableSmartCommit": true
+  "prettier.printWidth": 100,
+  "prettier.arrowParens": "avoid",
+  "prettier.tabWidth": 2,
+  "prettier.singleQuote": false,
+  "prettier.semi": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.codeLens.enabled": false,
+  "git.confirmSync": false,
+  "workbench.iconTheme": "vscode-great-icons",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "workbench.colorTheme": "Ayu Mirage"
 }
 ```

@@ -11,20 +11,19 @@
 - Chinese
 - Prettier
 - open in browser
+- Import Cost
+- GitLens
+- Volar
+- ES7+ React/Redux/React-Native snippets
 - Error Lens
 - DotENV
-- Import Cost
-- Volar
-- GitLens
-- Live Server
 - Polacode-2022
-- ES7+ React/Redux/React-Native snippets
 
 ## 主题
 
-- Shades of Purple
+- Ayu
+- One Dark Pro
 - Monokai Pro
-- Dark Molakai Theme
 - Pink-Cat-Boo Theme
 - Panda Theme
 
