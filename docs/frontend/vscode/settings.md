@@ -2,10 +2,10 @@
 
 ```json
 {
-  "editor.lineHeight": 1.6,
-  "editor.fontSize": 18,
+  "editor.lineHeight": 1.4,
+  "editor.fontSize": 20,
   "editor.tabSize": 2,
-  "editor.fontWeight": "600",
+  "editor.fontWeight": "500",
   "editor.linkedEditing": true,
   "editor.tabCompletion": "on",
   "editor.bracketPairColorization.enabled": true,
@@ -26,16 +26,36 @@
   "volar.autoCompleteRefs": true,
   "volar.inlayHints.eventArgumentInInlineHandlers": false,
   "prettier.vueIndentScriptAndStyle": true,
-  "prettier.printWidth": 100,
   "prettier.arrowParens": "avoid",
   "prettier.tabWidth": 2,
   "prettier.singleQuote": false,
-  "prettier.semi": false,
+  "prettier.semi": true,
   "gitlens.hovers.currentLine.over": "line",
   "gitlens.codeLens.enabled": false,
   "git.confirmSync": false,
-  "workbench.iconTheme": "vscode-great-icons",
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "workbench.colorTheme": "Ayu Mirage"
+  "editor.inlineSuggest.enabled": true,
+  "terminal.integrated.env.osx": {},
+  "terminal.integrated.env.windows": {},
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "workbench.iconTheme": "vscode-great-icons",
+  "gitlens.graph.minimap.enabled": false,
+  "window.titleBarStyle": "custom",
+  "workbench.colorTheme": "Houston",
+  "console-ninja.toolsToEnableSupportAutomaticallyFor": {
+    "live-server-extension": true
+  },
+  "Codegeex.Explanation.LanguagePreference": "en-US",
+  "Codegeex.Privacy": true,
+  "Codegeex.Survey": true,
+  "editor.formatOnSave": true
 }
 ```

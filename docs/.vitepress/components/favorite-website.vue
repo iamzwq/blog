@@ -34,10 +34,11 @@
           intro: "影视在线聚合搜索",
         },
         {
-          text: "全影网",
-          link: "https://quanying.cc/",
-          icon: "https://quanying.cc/mxtheme/images/favicon.png",
-          intro: "在线观看",
+          text: "硬核影视",
+          link: "https://yingheapp.com/",
+          icon: "https://yingheapp.com/favicon.ico",
+          icon: "https://pic.rmb.bdstatic.com/bjh/user/5ee4972c05c77938d80e85c43954b336.png",
+          intro: "超清影片资源才是最硬核",
         },
         {
           text: "人人影视",
@@ -57,17 +58,22 @@
           icon: "https://dianyi.ng/static/picture/logo.png",
           intro: "在线观看",
         },
+      ],
+    },
+    {
+      title: "聚合资讯",
+      children: [
         {
-          text: "低端影视",
-          link: "https://ddys.art/",
-          icon: "https://ddys.art/favicon-16x16.png",
-          intro: "在线观看",
+          text: "热榜Today",
+          link: "https://rebang.today/",
+          icon: "https://rebang.today/favicon.ico",
+          intro: "今日热榜",
         },
         {
-          text: "美剧天堂",
-          link: "https://www.meijutt.tv/",
-          icon: "https://www.meijutt.tv/favicon.ico",
-          intro: "在线/磁力/度盘/迅雷",
+          text: "今日热榜",
+          link: "https://tophub.today/",
+          icon: "https://tophub.today/favicon.ico",
+          intro: "今日热榜",
         },
       ],
     },
@@ -373,7 +379,8 @@
           text: "StackBlitz",
           link: "https://stackblitz.com/",
           icon: "https://c.staticblitz.com/assets/favicon_sb-861fe1b85c0dc928750c62de15fed96fc75e57ee366bd937bad17a3938917b3f.svg",
-          intro: "StackBlitz | Instant Dev Environments | Click. Code. Done. - StackBlitz",
+          intro:
+            "StackBlitz | Instant Dev Environments | Click. Code. Done. - StackBlitz",
         },
         {
           text: "随机图片",
@@ -413,7 +420,7 @@
         },
       ],
     },
-  ]
+  ];
 </script>
 
 <template>
@@ -431,7 +438,10 @@
         >
           <div class="site-title">
             <img
-              :src="site.icon || 'https://favicon.rss.ink/v1/aHR0cHM6Ly9hcHAuaGFpa2VpLmFwcA=='"
+              :src="
+                site.icon ||
+                'https://favicon.rss.ink/v1/aHR0cHM6Ly9hcHAuaGFpa2VpLmFwcA=='
+              "
               :alt="site.text"
               class="site-icon"
             />

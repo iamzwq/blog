@@ -1,4 +1,4 @@
-import { defineConfig } from "vitepress"
+import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -48,7 +48,10 @@ export default defineConfig({
       { text: "前端", link: "/frontend/notes/git-command" },
       { text: "其他", link: "/others/favorite-website" },
       // { text: "其他", items: [] },
-      { text: "我的掘金", link: "https://juejin.cn/user/3087084382068286/posts" },
+      {
+        text: "我的掘金",
+        link: "https://juejin.cn/user/3087084382068286/posts",
+      },
     ],
 
     sidebar: {
@@ -57,12 +60,19 @@ export default defineConfig({
           text: "前端笔记",
           items: [
             { text: "React和Vue的对比", link: "/frontend/notes/react-vs-vue" },
-            { text: "项目搭建配置之eslint", link: "/frontend/notes/cli-eslint" },
+            {
+              text: "项目搭建配置之eslint",
+              link: "/frontend/notes/cli-eslint",
+            },
             { text: "git常用指令", link: "/frontend/notes/git-command" },
             { text: "axios封装", link: "/frontend/notes/axios-wrapper" },
             { text: "原型链和继承", link: "/frontend/notes/prototype-extend" },
             { text: "常用工具函数", link: "/frontend/notes/frontend-utils" },
-            { text: "npm,nvm,yarn相关指令", link: "/frontend/notes/npm-nvm-yarn" },
+            {
+              text: "npm,nvm,yarn相关指令",
+              link: "/frontend/notes/npm-nvm-yarn",
+            },
+            { text: "自定义react hook", link: "/frontend/notes/custom-hook" },
           ],
         },
         {
@@ -80,4 +90,4 @@ export default defineConfig({
       ],
     },
   },
-})
+});

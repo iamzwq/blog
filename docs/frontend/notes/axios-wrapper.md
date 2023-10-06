@@ -2,116 +2,126 @@
 
 基于`axios@1.3.4`的 ts 封装
 
-
 ```ts
-import axios from "axios"
+import axios from "axios";
 import type {
   AxiosInstance,
+  AxiosRequestConfig,
   AxiosResponse,
   CreateAxiosDefaults,
   InternalAxiosRequestConfig,
-  RawAxiosRequestConfig,
-} from "axios"
-import useSessionStore from "@/stores/session"
+} from "axios";
+import { router } from "~/router";
+import { useGlobalStore } from "~/stores";
 
-type ApiResponse<T> = {
-  code: number
-  message: string
-  result: T
+// 扩展axios接口
+declare module "axios" {
+  interface AxiosRequestConfig {
+    successCode?: number;
+  }
 }
 
-interface ExpandCreateAxiosDefaults<D = any> extends CreateAxiosDefaults<D> {
-  interceptorHooks?: InterceptorHooks
+interface ApiResult<T = any> {
+  code: number;
+  data: T;
+  message: string;
 }
 
-export interface InterceptorHooks {
-  requestInterceptor?: (config: InternalAxiosRequestConfig) => InternalAxiosRequestConfig
-  requestInterceptorCatch?: (error: any) => any
-  responseInterceptor?: <T>(
-    response: AxiosResponse
-  ) => AxiosResponse<ApiResponse<T>> | Promise<AxiosResponse<ApiResponse<T>>>
-  responseInterceptorCatch?: (error: any) => any
-}
+const SUCCESS_CODE = 1000;
 
 class Request {
-  private instance: AxiosInstance
+  private instance: AxiosInstance;
+  // 存放取消请求控制器Map
+  private abortControllerMap: Map<string, AbortController>;
 
-  private interceptorHooks?: InterceptorHooks
+  constructor(config: CreateAxiosDefaults) {
+    this.instance = axios.create(config);
 
-  constructor(config?: ExpandCreateAxiosDefaults) {
-    this.instance = axios.create(config)
+    this.abortControllerMap = new Map();
 
-    // 把拦截器放在外面，为了比较容易拓展不同接口的自定义拦截器
-    this.interceptorHooks = config?.interceptorHooks
-
-    this.setupInterceptors()
-  }
-
-  private setupInterceptors() {
+    // 请求拦截器
     this.instance.interceptors.request.use(
-      this.interceptorHooks?.requestInterceptor,
-      this.interceptorHooks?.requestInterceptorCatch
-    )
+      (config: InternalAxiosRequestConfig) => {
+        if (config.url !== "/login") {
+          const token = useGlobalStore.getState().token;
+          if (token) config.headers["x-token"] = token;
+        }
+
+        const controller = new AbortController();
+        const url = config.url || "";
+        config.signal = controller.signal;
+        this.abortControllerMap.set(url, controller);
+
+        return config;
+      },
+      Promise.reject
+    );
+
+    // 响应拦截器
     this.instance.interceptors.response.use(
-      this.interceptorHooks?.responseInterceptor,
-      this.interceptorHooks?.responseInterceptorCatch
-    )
+      (response: AxiosResponse) => {
+        const url = response.config.url || "";
+        this.abortControllerMap.delete(url);
+
+        const successCode = response.config.successCode || SUCCESS_CODE;
+        if (response.data.code !== successCode) {
+          return Promise.reject(response.data);
+        }
+        return response.data;
+      },
+      err => {
+        if (err.response?.status === 401) {
+          useGlobalStore.setState({ token: "" });
+          const { pathname, search } = window.location;
+          window.location.href = `/login?redirect=${pathname + search}`;
+          // router.navigate(`/login?redirect=${pathname + search}`, {
+          //   replace: true,
+          // });
+        }
+        return Promise.reject(err);
+      }
+    );
   }
 
-  request<T>(config: RawAxiosRequestConfig): Promise<AxiosResponse<ApiResponse<T>>> {
-    return this.instance.request(config)
+  // 取消全部请求
+  cancelAllRequest() {
+    for (const [, controller] of this.abortControllerMap) {
+      controller.abort();
+    }
+    this.abortControllerMap.clear();
   }
 
-  get<T>(
+  // 取消指定的请求
+  cancelRequest(url: string | string[]) {
+    const urlList = Array.isArray(url) ? url : [url];
+    for (const _url of urlList) {
+      this.abortControllerMap.get(_url)?.abort();
+      this.abortControllerMap.delete(_url);
+    }
+  }
+
+  request<T = any>(config: AxiosRequestConfig): Promise<ApiResult<T>> {
+    return this.instance.request(config);
+  }
+
+  get<T = any>(
     url: string,
-    config?: RawAxiosRequestConfig
-  ): Promise<AxiosResponse<ApiResponse<T>>> {
-    return this.instance.get(url, config)
+    config?: AxiosRequestConfig
+  ): Promise<ApiResult<T>> {
+    return this.instance.get(url, config);
   }
 
-  post<T>(
+  post<T = any>(
     url: string,
     data?: any,
-    config?: RawAxiosRequestConfig
-  ): Promise<AxiosResponse<ApiResponse<T>>> {
-    return this.instance.post(url, data, config)
+    config?: AxiosRequestConfig
+  ): Promise<ApiResult<T>> {
+    return this.instance.post(url, data, config);
   }
 }
 
-const interceptorHooks: InterceptorHooks = {
-  requestInterceptor: config => {
-    if (config.url !== "/login") {
-      const token = useSessionStore.getState().userInfo?.token
-      if (token) config.headers!["x-token"] = token
-    }
-
-    return config
-  },
-  requestInterceptorCatch: err => Promise.reject(err),
-  responseInterceptor: response => {
-    const SUCCESS_CODE = 1000
-
-    if (response.data.code !== SUCCESS_CODE) {
-      return Promise.reject(response)
-    }
-
-    // 不直接返回业务接口的数据(response.data)，是因为有些时候可能需要获取 响应头信息
-    return response
-  },
-  responseInterceptorCatch: err => {
-    // alert(err.message)
-    if (err.response?.status === 401) {
-      useSessionStore.getState().reset()
-      window.location.href = `/login?redirect=${window.location.pathname}`
-    }
-
-    return Promise.reject(err)
-  },
-}
-
-export const http = new Request({
-  timeout: 20000,
-  baseURL: import.meta.env.VITE_API_BASE_URL,
-  interceptorHooks,
-})
+export const request = new Request({
+  timeout: 5 * 60 * 1000,
+  baseURL: import.meta.env.VITE_API_BASEURL,
+});
 ```

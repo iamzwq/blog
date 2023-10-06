@@ -8,26 +8,31 @@
 
 ## 插件
 
-- Chinese
-- Prettier
-- open in browser
-- Import Cost
-- GitLens
-- Volar
-- ES7+ React/Redux/React-Native snippets
-- Error Lens
-- DotENV
-- Polacode-2022
+- Chinese - 中文语言包
+- Prettier - 代码格式化
+- open in browser - 这允许您在默认浏览器或应用程序中打开当前文件
+- Import Cost - 在编辑器中显示导入包大小
+- GitLens - 显示 Git 提交历史记录和代码作者
+- Volar - 支持 Vue3
+- ES7+ React/Redux/React-Native snippets - React 代码片段
+- CodeSnap - 为您的代码拍摄漂亮的屏幕截图
+- CodeGeeX - AI 代码自动完成
+- Unocss - unocss 智能感知
+- Tailwind CSS IntelliSense - tailwind css 智能感知
+- Error Lens - 显示错误和警告
+- DotENV - 用于.env 文件的语法高亮
+- Console Ninja - console.log 输出显示
 
 ## 主题
 
+- Houston
 - Ayu
 - One Dark Pro
 - Monokai Pro
-- Pink-Cat-Boo Theme
-- Panda Theme
+- Dracula Official
 
 ## icon 主题
+
 - VSCode Great Icons
 - Material Icon Theme
 
