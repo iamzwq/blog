@@ -2,32 +2,36 @@
 
 ## debounce
 
-```javascript
-const debounce = (fn, delay = 1000) => {
-  let timer = null;
-
-  return () => {
+```ts
+const debounce = <F extends (...args: any[]) => any>(
+  fn: F,
+  delay: number = 500
+) => {
+  let timer: NodeJS.Timeout | null = null;
+  return function (this: ThisParameterType<F>, ...args: Parameters<F>) {
     if (timer) clearTimeout(timer);
 
     timer = setTimeout(() => {
-      fn.apply(this, arguments);
+      fn.apply(this, args);
     }, delay);
-
   };
 };
 ```
 
 ## throttle
 
-```javascript
-const throttle = (fn, delay = 1000) => {
-  let pre = 0;
-
-  return () => {
+```ts
+const throttle = <F extends (...args: any[]) => any>(
+  fn: F,
+  delay: number = 500
+) => {
+  let prev = 0;
+  return function (this: ThisParameterType<F>, ...args: Parameters<F>) {
     const now = Date.now();
-    if (now - pre > delay) {
-      pre = now;
-      fn();
+
+    if (now - prev > delay) {
+      fn.apply(this, args);
+      prev = now;
     }
   };
 };
@@ -43,6 +47,40 @@ const throttleV2 = (fn, delay = 1000) => {
       timer = null;
     }, delay);
   };
+};
+```
+
+## deepClone
+
+```ts
+const deepClone = <T = any>(value: T) => {
+  if (typeof value !== "object" || value === null) return value;
+
+  const clone = <T>(Array.isArray(value) ? [] : {});
+  for (const key in value) {
+    if (Object.prototype.hasOwnProperty.call(value, key)) {
+      clone[key] = deepClone(value[key]);
+    }
+  }
+  return clone;
+};
+```
+
+## get
+
+```ts
+const get = (target: object, path: string | any[], defaultValue?: any) => {
+  let newPath: any[] = [];
+  if (Array.isArray(path)) {
+    newPath = path;
+  } else {
+    newPath = path.replace(/\[/g, ".").replace(/\]/g, "").split(".");
+  }
+  return (
+    newPath.reduce((pre, cur) => {
+      return pre && pre[cur];
+    }, target) ?? defaultValue
+  );
 };
 ```
 
@@ -107,49 +145,4 @@ export function isImageDom(o: Element) {
 export function isNull(val: unknown): val is null {
 	return val === null;
 }
-```
-
-## deepClone
-
-```javascript
-const deepClone = (target) => {
-  if (!isObj) return target;
-
-  const result = Array.isArray(target) ? [] : {};
-
-  for (let key in target) {
-    if (target.hasOwnProperty(key)) {
-      if (isObj(target[key])) {
-        result[key] = deepClone(target[key]);
-      } else {
-        result[key] = target[key];
-      }
-    }
-  }
-
-  return result;
-};
-```
-
-## get
-
-```javascript
-const get = (
-  obj: any,
-  path: string[] | string,
-  defaultValue: any = undefined
-) => {
-  let newPath = [];
-  if (Array.isArray(path)) {
-    newPath = path;
-  } else {
-    newPath = path.replace(/\[/g, ".").replace(/\]/g, "").split(".");
-  }
-
-  return (
-    newPath.reduce((reslut, current) => {
-      return (reslut || {})[current];
-    }, obj) || defaultValue
-  );
-};
 ```
